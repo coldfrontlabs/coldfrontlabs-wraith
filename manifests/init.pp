@@ -30,15 +30,18 @@ class wraith {
         }
 
         # 4. Create an alias for the "wraith" command to run "scl enable ruby193 wraith" and pass in arguments
-        # @todo Something like this in .bashrc
+        $wraith_command = 'wraith () {
+         local wraithcommand=wraith
+         local wraithcommand="$wraithcommand $@";
+         echo $wraithcommand;
+         scl enable ruby193 "$wraithcommand";
+        }'
 
-        # wraith () {
-        #   local wraithcommand=wraith
-        #   local wraithcommand="$wraithcommand $@";
-        #   echo $wraithcommand;
-        #   scl enable ruby193 "$wraithcommand";
-        # }
-
+        file {'/etc/profile.d/wraith.sh':
+          ensure => 'present',
+          content => $wraith_command,
+          mode => 0755,
+        }
       }
       default: {
         #Add wraith responsive comparison tool
