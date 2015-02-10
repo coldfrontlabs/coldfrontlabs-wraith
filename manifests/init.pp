@@ -27,6 +27,7 @@ class wraith {
         exec {'scl-install-ruby':
           command => "scl enable ruby193 'gem install wraith'",
           path => ['/usr/bin'],
+          require => Package['ruby193', 'ruby193-ruby-devel'],
         }
 
         # 4. Create an alias for the "wraith" command to run "scl enable ruby193 wraith" and pass in arguments
@@ -41,6 +42,7 @@ class wraith {
           ensure => 'present',
           content => $wraith_command,
           mode => 0755,
+          require => Exec['scl-install-ruby'],
         }
       }
       default: {
