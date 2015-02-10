@@ -4,9 +4,8 @@ class wraith {
   if $::operatingsystem == 'Ubuntu' or $::osfamily == 'Debian' {
 
     #Add wraith responsive comparison tool
-    ensure_packages('libicu-dev')
-    ensure_packages('imagemagick')
-    ensure_packages("wraith", {'ensure' => 'present', 'provider' => 'gem', require => Package['libicu-dev', 'imagemagick']})
+    ensure_packages(['libicu-dev', 'imagemagick', 'zlib1g-dev'])
+    ensure_packages("wraith", {'ensure' => 'present', 'provider' => 'gem', require => [Package['libicu-dev', 'imagemagick', 'zlib1g-dev'], Class['phantomjs']]})
 
   } elsif $::osfamily == 'RedHat' {
 
@@ -27,7 +26,7 @@ class wraith {
         exec {'scl-install-ruby':
           command => "scl enable ruby193 'gem install wraith'",
           path => ['/usr/bin'],
-          require => Package['ruby193', 'ruby193-ruby-devel'],
+          require => [Package['ruby193', 'ruby193-ruby-devel'], Class['phantomjs']],
         }
 
         # 4. Create an alias for the "wraith" command to run "scl enable ruby193 wraith" and pass in arguments
@@ -47,10 +46,8 @@ class wraith {
       }
       default: {
         #Add wraith responsive comparison tool
-        ensure_packages('ruby-devel')
-        ensure_packages('libicu-devel')
-        ensure_packages('ImageMagick')
-        ensure_packages("wraith", {'ensure' => 'present', 'provider' => 'gem', require => Package['libicu-devel', 'ImageMagick', 'ruby-devel']})
+        ensure_packages(['ruby-devel', 'libicu-devel', 'ImageMagick'])
+        ensure_packages("wraith", {'ensure' => 'present', 'provider' => 'gem', require => [Package['libicu-devel', 'ImageMagick', 'ruby-devel'], Class['phantomjs']]})
       }
     }
   }
