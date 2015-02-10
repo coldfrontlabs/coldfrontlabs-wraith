@@ -20,7 +20,7 @@ class wraith {
         ensure_packages('centos-release-SCL')
 
         # 2. Install ruby193, ruby193-ruby-devel and ruby193-rake
-        ensure_packages(['ruby193', 'ruby193-ruby-devel'], {require => Package['centos-release-SCL']})
+        ensure_packages(['ruby193', 'ruby193-ruby-devel', 'zlib-devel'], {require => Package['centos-release-SCL']})
 
         # 3. Install wraith with "scl enable ruby193 'bash';gem install wraith"
         # @todo probably need to do this with exec
