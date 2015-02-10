@@ -24,9 +24,20 @@ class wraith {
 
         # 3. Install wraith with "scl enable ruby193 'bash';gem install wraith"
         # @todo probably need to do this with exec
+        exec {'scl-install-ruby':
+          command => "scl enable ruby193 'gem install wraith'",
+          path => ['/usr/bin'],
+        }
 
         # 4. Create an alias for the "wraith" command to run "scl enable ruby193 wraith" and pass in arguments
-        # @todo figure out how to do that part...
+        # @todo Something like this in .bashrc
+
+        # wraith () {
+        #   local wraithcommand=wraith
+        #   local wraithcommand="$wraithcommand $@";
+        #   echo $wraithcommand;
+        #   scl enable ruby193 "$wraithcommand";
+        # }
 
       }
       default: {
