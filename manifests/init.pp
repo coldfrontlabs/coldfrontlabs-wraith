@@ -31,7 +31,7 @@ class wraith {
 
         # 4. Create an alias for the "wraith" command to run "scl enable ruby193 wraith" and pass in arguments
         $wraith_command = 'wraith () {
-         local wraithcommand=wraith
+         local wraithcommand=/opt/rh/ruby193/root/usr/local/bin/wraith
          local wraithcommand="$wraithcommand $@";
          echo $wraithcommand;
          scl enable ruby193 "$wraithcommand";
