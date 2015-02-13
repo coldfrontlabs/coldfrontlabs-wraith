@@ -1,0 +1,14 @@
+{
+  "name": "coldfrontlabs-wraith",
+  "version": "0.5.0",
+  "author": "coldfrontlabs",
+  "summary": "Install and manage the Wraith site comparison tool created by the BBC.",
+  "license": "Apache 2.0",
+  "source": "https://github.com/coldfrontlabs/coldfrontlabs-wraith",
+  "project_page": "https://github.com/coldfrontlabs/coldfrontlabs-wraith",
+  "issues_url": "https://github.com/coldfrontlabs/coldfrontlabs-wraith/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ]
+}
+

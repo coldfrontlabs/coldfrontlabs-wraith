@@ -1,5 +1,5 @@
 name    'coldfront-wraith'
-version '0.0.1'
+version '0.5.0'
 source 'UNKNOWN'
 author 'Coldfront Labs Inc.'
 summary 'Wraith CSS comparison tool'
