@@ -49,8 +49,12 @@ In your puppet module. Installs the latest version of Wraith.
 
 ## Limitations
 
-Supports Ubuntu / Debian and CentOS 7+
+Supports:
+ - Ubuntu 14.04+
+ - CentOS 7+
 
 ## Development
 
 We're only looking to build in more system support. Actually running wraith commands are considered out of scope for this module (unless you're really really convincing).
+
+If someone wants to figure out how to get this module to work on CentOS 6, that would be greatly appreciated!
