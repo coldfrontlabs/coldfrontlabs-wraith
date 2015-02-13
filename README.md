@@ -1,4 +1,5 @@
 # Wraith
+[![Build Status](https://travis-ci.org/coldfrontlabs/coldfrontlabs-wraith.svg?branch=master)](https://travis-ci.org/coldfrontlabs/coldfrontlabs-wraith)
 
 #### Table of Contents
 
